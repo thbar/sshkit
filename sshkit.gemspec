@@ -31,6 +31,8 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency('rubocop', "~> 0.49.1")
   gem.add_development_dependency('mocha')
 
-  gem.add_development_dependency('bcrypt_pbkdf')
+  unless (defined?(RUBY_ENGINE) && RUBY_ENGINE == 'jruby')
+    gem.add_development_dependency('bcrypt_pbkdf')
+  end
   gem.add_development_dependency('ed25519', '>= 1.2', '< 2.0')
 end
